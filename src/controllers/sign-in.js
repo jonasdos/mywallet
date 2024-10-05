@@ -22,6 +22,7 @@ export async function signIn(req, res) {
     const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET)
 
     await db.collection('sessions').insertOne({
+      userID: user._id,
       user: user.userName,
       token: token,
       data: new Date()

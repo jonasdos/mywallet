@@ -10,3 +10,19 @@ export const SignInSchema = joi.object({
   email: joi.string().email().required(),
   senha: joi.string().required()
 })
+
+export const transactionsSchema = joi.object({
+  value: joi.number().positive().required(),
+  description: joi.string().required().min(3),
+  type: joi.string().valid('deposit', 'withdraw').required()
+})
+
+export const editTransactionSchema = joi.object({
+  value: joi.number().positive().required(),
+  description: joi.string().required().min(3),
+  type: joi.string().valid('deposit', 'withdraw').required(),
+  transactionID: joi.string().required()
+})
+export const deleteTransactionSchema = joi.object({
+  transactionID: joi.string().required()
+})

@@ -10,7 +10,7 @@ app.use(cors())
 app.use(express.json())
 app.use(authRouter)
 app.use(transactionRouther)
-const porta = process.env.PORT
+const porta = process.env.PORT || 5000
 app.listen(porta, () => {
   console.log(`Servidor rodando na porta ${porta}`)
 })

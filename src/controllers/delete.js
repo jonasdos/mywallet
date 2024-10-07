@@ -1,5 +1,5 @@
 import db from "../db/conection.js";
-import { deleteTransactionSchema } from "../schemas/schemas.js";
+import { deleteTransactionSchema } from "../schemas/transactionSchema.js";
 import { ObjectId } from "mongodb";
 
 export async function deleteTransaction(req, res) {

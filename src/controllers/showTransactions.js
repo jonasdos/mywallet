@@ -1,5 +1,5 @@
 import db from '../db/conection.js'
-import { ObjectId } from 'mongodb'
+
 export async function showTransactions(req, res) {
   const usuario = res.locals.user._id
   const { page = 1 } = req.query

@@ -1,6 +1,6 @@
 
 import db from "../db/conection.js";
-import { editTransactionSchema } from "../schemas/schemas.js";
+import { editTransactionSchema } from "../schemas/transactionSchema.js";
 import { ObjectId } from "mongodb";
 
 export async function editTransaction(req, res) {
@@ -19,7 +19,7 @@ export async function editTransaction(req, res) {
   try {
     await db.collection('transactions').updateOne(
       { _id: new ObjectId(requestData.transactionID) },
-      { $set: { value: requestData.value, description: requestData.description } }
+      { $set: { value: requestData.value, description: requestData.description, type: requestData.type } }
     )
     const editado = await db.collection('transactions').findOne(
       { _id: new ObjectId(requestData.transactionID) }

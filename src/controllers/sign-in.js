@@ -2,7 +2,7 @@ import bcrypt from "bcrypt"
 import jwt from "jsonwebtoken"
 import db from '../db/conection.js'
 import { ObjectId } from "mongodb"
-import { SignInSchema } from "../schemas/schemas.js"
+import { SignInSchema } from "../schemas/userSchemas.js"
 
 
 export async function signIn(req, res) {

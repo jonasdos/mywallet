@@ -1,9 +1,9 @@
-import { transactionsSchema } from "../schemas/schemas.js";
+import { transactionSchema } from "../schemas/transactionSchema.js";
 import db from '../db/conection.js'
 
-export async function transactions(req, res) {
+export async function transaction(req, res) {
   const requestData = req.body
-  const validaData = transactionsSchema.validate(requestData, { abortEarly: false })
+  const validaData = transactionSchema.validate(requestData, { abortEarly: false })
   if (validaData.error) {
     const erros = validaData.error.details.map(detail => detail.message)
     return res.status(422).send(erros)
